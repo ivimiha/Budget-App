@@ -37,13 +37,22 @@ var UIController = (function(){
 
 var controller = (function(budgetCtrl, UICtrl){
 
-    var DOM = UICtrl.getDOMstrings();
+    var setupEventListeners = function(){                           //Added init function to centrlize all code that needs to start when the app starts               
+        var DOM = UICtrl.getDOMstrings();
+        document.querySelector(DOM.inputBtn).addEventListener("click", ctrlAddItem); //
+
+        document.addEventListener("keypress", function(event){   //Add the result when Enter key is pressed also
+            if (event.keyCode === 13 || event.which === 13) {    // Use both to be more precise. .which is for ASCII code. 
+                ctrlAddItem();
+            }
+        });
+    };
+
+
 
     var ctrlAddItem = function (){                             //Function that captures and handles the input
         //1. Get the input data
         var input = UICtrl.getInput();
-        console.log(input);
-
 
         //2. Add the item to the budget controller
 
@@ -53,19 +62,18 @@ var controller = (function(budgetCtrl, UICtrl){
 
         //5. Display the budget
         
-    }
+    };
 
-    document.querySelector(DOM.inputBtn).addEventListener("click", ctrlAddItem); //
 
-    document.addEventListener("keypress", function(event){   //Add the result when Enter key is pressed also
-        if (event.keyCode === 13 || event.which === 13) {    // Use both to be more precise. .which is for ASCII code. 
-            ctrlAddItem();
+    return {
+        init: function(){
+            console.log("Application has started");
+            setupEventListeners();
         }
-
-    })
-
+    };
 })(budgetController, UIController);
 
+controller.init();
 
 
 
