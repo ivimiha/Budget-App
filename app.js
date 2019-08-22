@@ -105,7 +105,7 @@ var UIController = (function () {
         
         },
 
-        clearFields: function(){
+        clearFields: function(){                                                                            //Clear input fields after the entry
             var fields, fieldsArr;
 
             fields = document.querySelectorAll(DOMstrings.inputDescription + ", " + DOMstrings.inputValue);
@@ -159,7 +159,7 @@ var controller = (function (budgetCtrl, UICtrl) {
         //3. Add the new item to the user interface
         UICtrl.addListItem(newItem, input.type);
 
-        // For the fields cleaning
+        //3.5 For the fields cleaning
         UICtrl.clearFields();
 
 
