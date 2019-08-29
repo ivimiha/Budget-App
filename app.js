@@ -90,6 +90,12 @@ var budgetController = (function () {
             }
         },
 
+        calculatePercentages: function(){
+        
+
+            
+        },
+
         getBudget: function () {
             return {
                 budget: data.budget,
@@ -235,6 +241,18 @@ var controller = (function (budgetCtrl, UICtrl) {
 
 
     };
+    var updatePercentages = function(){
+        //1. Calculate the percentages
+
+
+        //2. Read them from the budget controller
+
+
+        //3. Update the UI with the new percentages
+
+
+    },
+
 
     var ctrlAddItem = function () {                             //Function that captures and handles the input
         var input, newItem;
@@ -255,6 +273,9 @@ var controller = (function (budgetCtrl, UICtrl) {
 
             //5. Calculate and update budget
             updateBudget();
+
+            //6. Calculate and update percentages
+            updatePercentages();
         }
     };
 
@@ -275,6 +296,9 @@ var controller = (function (budgetCtrl, UICtrl) {
 
             //3. Update and show new budget
             updateBudget();
+            
+            //4. Calculate and update percentages
+            updatePercentages();
 
         }
     };
